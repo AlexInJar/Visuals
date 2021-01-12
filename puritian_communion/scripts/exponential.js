@@ -10,19 +10,6 @@ function generate_bite(prob_one){
     return ret_bit;
 }
 
-// my_rule = {
-//     0 : 0,
-//     1 : 0.1,
-//     2 : 0.2,
-//     3 : 0.3,
-//     4 : 0.4,
-//     5 : 0.5,
-//     6 : 0.6,
-//     7 : 0.7,
-//     8 : 0.11,
-//     9 : 0.1
-// }
-
 my_rule = new Object();
 var k = 1.7;
 var lambda = 0.131
@@ -30,9 +17,9 @@ var lambda = 0.131
 
 for ( i = 0 ; i < 10; i ++) {
     // my_rule[i] =  i/10
-    my_rule[i] = 1/(1 + Math.exp(-k*(i - 4.5)));
+    //my_rule[i] = 1/(1 + Math.exp(-k*(i - 4.5)));
     // my_rule[i] = Math.pow((i - 4.5)/10,4);
-    // my_rule[i] =  1 - Math.exp(-lambda*i);
+    my_rule[i] =  1 - Math.exp(-lambda*i);
     // i/10
     Math.random();
 }
@@ -86,8 +73,8 @@ F = t=>{
                     for (v = -1; 2 > v; v++)
                         n += g[j + u][k + v];
                 // Implements the rule of game of life
-                // n -= g[j][k];
-                //p[j][k] = 0 === g[j][k] ? 3 == n ? 1 : 0 : 2 == n || 3 == n ? 1 : 0
+                //  n -= g[j][k];
+                // p[j][k] = 0 === g[j][k] ? 3 == n ? 1 : 0 : 2 == n || 3 == n ? 1 : 0
                 
                 //implement a new probablistic Alex rule with math.random
                 p[j][k] = generate_bite(my_rule[n]);
