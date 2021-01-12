@@ -1,1 +1,1 @@
-# small_projects
+# projects just for fun
