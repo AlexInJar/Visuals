@@ -19,7 +19,7 @@
         function dec2bin(dec){
             return (dec >>> 0).toString(2);
         }
-        
+
         function generate_bite(prob_one){
             rand_to_one = Math.random()
         
@@ -27,12 +27,12 @@
         
             return ret_bit;
         }
-        
+
         my_rule = new Object();
         var k = 1.7;
         var lambda = 0.131
-        
-        
+
+
         for ( i = 0 ; i < 10; i ++) {
             // my_rule[i] =  i/10
             my_rule[i] = 1/(1 + Math.exp(-k*(i - 4.5)));
@@ -41,7 +41,7 @@
             // i/10
             Math.random();
         }
-        
+
         // my_rule = [];
         // for (i = 0; i < 10; i ++) {
         //     my_rule.push(Math.random())
@@ -93,7 +93,7 @@
                         // Implements the rule of game of life
                          n -= g[j][k];
                         p[j][k] = 0 === g[j][k] ? 3 == n ? 1 : 0 : 2 == n || 3 == n ? 1 : 0
-                        
+
                         //implement a new probablistic Alex rule with math.random
                         //p[j][k] = generate_bite(my_rule[n]);
                     }
@@ -117,6 +117,9 @@
         };
         F();
         console.log(my_rule);
+        module.exports = {
+        devtool: "source-map",
+        }
     </script>
 </html>
 
