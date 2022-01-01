@@ -25,7 +25,7 @@ theNode.prototype.decValue = function() {
     this.value -- ;
 };
 
-
+var valulst = [-1, -1, 1, 1, 1]
 
 
 var nodar = [];
@@ -50,7 +50,7 @@ function addNodesRow(somenodes) {
         grow.insertCell(0).innerHTML = nodei.label
         grow.insertCell(1).innerHTML = nodei.value
         grow.insertCell(2).innerHTML = '<input type="button" value = "Borrow_" onClick="Javacsript:borr_i(this)">'    
-
+        grow.insertCell(3).innerHTML = '<input type="button" value = "Lend_" onClick="Javacsript:lend_i(this)">'
     }
 }
 
@@ -138,7 +138,7 @@ function decNdidx(decid) {
 // initialize your network!
 var network = new vis.Network(container, data, options);
 
-function borr_i(obj){
+function borr_i(obj) {
     // console.log(obj.parentNode.parentNode.rowIndex)
     ndid = obj.parentNode.parentNode.rowIndex
     // incNdidx(ndid)
@@ -148,5 +148,14 @@ function borr_i(obj){
         // console.log(adji)
         decNdidx(adji)
         incNdidx(ndid)
+    }
+}
+
+function lend_i(obj) {
+    ndid = obj.parentNode.parentNode.rowIndex
+    adjar = network.getConnectedNodes(ndid)
+    for (let adji of adjar) {
+        incNdidx(adji)
+        decNdidx(ndid)
     }
 }
